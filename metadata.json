@@ -1,0 +1,8 @@
+{
+  "name": "SmartPack AI — Food Packaging Material Recommendation System",
+  "description": "AI-Powered Food Packaging Material Recommendation System — Calibrated Packaging Engineering & Decision Support Platform aligned with FSSAI 2026 and MoFPI standards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
