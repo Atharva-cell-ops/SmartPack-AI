@@ -1,4 +1,5 @@
 import React from 'react';
+import { SmartPackLogo, OfficialFssaiLogo, OfficialMofpiLogo } from './OfficialSeals';
 import {
   Info,
   AlertTriangle,
@@ -20,14 +21,25 @@ export const AboutView: React.FC = () => {
     <div className="max-w-4xl mx-auto space-y-6 pb-16">
       {/* Header */}
       <div className="bg-white rounded-xl border border-slate-200 p-5 sm:p-6 shadow-2xs">
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-[10px] font-extrabold uppercase tracking-widest bg-slate-100 text-[#059669] border border-slate-200 mb-2">
-          <Info className="w-3.5 h-3.5 text-[#059669]" />
-          <span>ENGINEERING DOSSIER & SYSTEM ARCHITECTURE</span>
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="flex items-center gap-4 sm:gap-5">
+            <SmartPackLogo className="w-18 h-18 sm:w-20 sm:h-20 rounded-2xl bg-white shadow-sm border border-slate-200 p-2.5 shrink-0" />
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-[10px] font-extrabold uppercase tracking-widest bg-slate-100 text-[#059669] border border-slate-200 mb-1.5">
+                <Info className="w-3.5 h-3.5 text-[#059669]" />
+                <span>ENGINEERING DOSSIER &amp; SYSTEM ARCHITECTURE</span>
+              </div>
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                About SmartPack AI
+              </h1>
+            </div>
+          </div>
+          <div className="flex items-center gap-3.5 self-start md:self-center">
+            <OfficialMofpiLogo className="h-16 sm:h-20 w-auto px-3.5 py-2 rounded-xl border border-slate-200 shadow-xs bg-white" />
+            <OfficialFssaiLogo className="h-16 sm:h-20 w-auto px-3.5 py-2 rounded-xl border border-slate-200 shadow-xs bg-white" />
+          </div>
         </div>
-        <h1 className="text-xl sm:text-2xl font-bold text-slate-900">
-          About SmartPack AI
-        </h1>
-        <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
+        <p className="text-xs text-slate-600 mt-3 leading-relaxed">
           SmartPack AI is an industrial decision-support and material screening platform for food packaging technologists, QA/QC teams, and agri-entrepreneurs. It calculates physicochemical barrier tolerances, evaluates barrier kinetics under ambient or cold-chain stress, and optimizes multi-layer substrate selection.
         </p>
       </div>

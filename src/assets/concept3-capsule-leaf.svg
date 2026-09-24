@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="100%" height="100%">
+  <defs>
+    <linearGradient id="c3_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#047857" />
+      <stop offset="60%" stop-color="#064E3B" />
+      <stop offset="100%" stop-color="#0F2942" />
+    </linearGradient>
+  </defs>
+
+  <!-- Modern Protective Box Shell -->
+  <rect x="48" y="48" width="160" height="160" rx="36" fill="url(#c3_grad)" />
+
+  <!-- Negative Space Fresh Food Leaf -->
+  <path d="M 128,68 C 172,68 184,112 184,152 C 184,188 128,188 128,188 C 128,188 72,188 72,152 C 72,112 84,68 128,68 Z" fill="#FFFFFF" />
+  <path d="M 128,74 C 164,74 174,112 174,148 C 174,178 128,182 128,182 Z" fill="#10B981" />
+  
+  <!-- AI Decision Vertex -->
+  <line x1="128" y1="74" x2="128" y2="182" stroke="#FFFFFF" stroke-width="2.5" />
+  <circle cx="128" cy="116" r="6" fill="#F59E0B" stroke="#FFFFFF" stroke-width="2" />
+  <circle cx="154" cy="98" r="4.5" fill="#FDE68A" />
+  <line x1="128" y1="116" x2="154" y2="98" stroke="#FDE68A" stroke-width="1.8" />
+</svg>

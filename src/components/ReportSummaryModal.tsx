@@ -1,5 +1,6 @@
 import React from 'react';
 import { RecommendationResult } from '../types';
+import { SmartPackLogo } from './OfficialSeals';
 import {
   X,
   Printer,
@@ -75,11 +76,13 @@ export const ReportSummaryModal: React.FC<ReportSummaryModalProps> = ({ result, 
 
   <div class="header-box">
     <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-      <div>
-        <span class="badge">SMARTPACK AI TECHNICAL SPECIFICATION</span>
-        <h2 style="font-size: 20px; margin-top: 6px;">${food.name} — Substrate Specification</h2>
-        <p style="color: #64748b; margin: 0; font-family: monospace;">Audit Ref: ${auditRef} • Evaluated: ${evalDate}</p>
-        <p style="color: #334155; margin: 4px 0 0 0;">Batch: ${productInput.quantityAmount} ${productInput.quantityUnit} • Target: ${productInput.targetShelfLifeDays} days • Storage: ${storage.storageMode} (${storage.temperatureC}°C, ${storage.relativeHumidityPercent}% RH)</p>
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <img src="/image.png" alt="SmartPack AI Logo" style="width: 52px; height: 52px; border-radius: 10px; object-fit: contain; border: 1px solid #cbd5e1; background: #0f172a; padding: 2px;" />
+        <div>
+          <span class="badge">SMARTPACK AI TECHNICAL SPECIFICATION</span>
+          <h2 style="font-size: 20px; margin-top: 4px; margin-bottom: 2px;">${food.name} — Substrate Specification</h2>
+          <p style="color: #64748b; margin: 0; font-family: monospace;">Audit Ref: ${auditRef} • Evaluated: ${evalDate}</p>
+        </div>
       </div>
       <div style="text-align: right;">
         <span class="badge">Confidence: ${confidenceGrade} (${confidenceScore}%)</span>
@@ -176,15 +179,13 @@ export const ReportSummaryModal: React.FC<ReportSummaryModalProps> = ({ result, 
       <div className="bg-white rounded-xl max-w-4xl w-full max-h-[92vh] flex flex-col shadow-2xl border border-slate-300 overflow-hidden">
         {/* Modal Header with ONE Single Action Button */}
         <div className="px-5 py-3.5 border-b border-slate-200 flex items-center justify-between bg-slate-50 shrink-0 modal-action-bar">
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-[#059669] text-white flex items-center justify-center shrink-0">
-              <FileText className="w-4 h-4" />
-            </div>
+          <div className="flex items-center gap-3">
+            <SmartPackLogo className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl shrink-0 shadow-2xs border border-slate-200 bg-white p-1" showBadge={false} />
             <div>
-              <h3 className="text-sm font-bold text-slate-900">
+              <h3 className="text-base font-bold text-slate-900 leading-tight">
                 Packaging Engineering Technical Dossier
               </h3>
-              <p className="text-[11px] text-slate-500 font-mono">
+              <p className="text-[11px] text-slate-500 font-mono mt-0.5">
                 Audit Ref: SP-ENG-{Date.now().toString().slice(-6)} • Evaluated: {new Date(evaluatedAt).toLocaleString()}
               </p>
             </div>

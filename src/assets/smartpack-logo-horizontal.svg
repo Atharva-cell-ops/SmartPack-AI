@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="h_primary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064E3B" />
+      <stop offset="55%" stop-color="#0D3B36" />
+      <stop offset="100%" stop-color="#0F2942" />
+    </linearGradient>
+
+    <linearGradient id="h_accent" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#047857" />
+      <stop offset="60%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#34D399" />
+    </linearGradient>
+
+    <linearGradient id="h_amber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A" />
+      <stop offset="50%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+
+    <linearGradient id="h_aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#10B981" />
+    </linearGradient>
+  </defs>
+
+  <!-- Left: Pure SaaS Symbol (76x76, at x=10, y=12) -->
+  <g transform="translate(10, 12)">
+    <g transform="scale(0.296875)">
+      <!-- Left Facet -->
+      <path d="M 52,68 C 52,48 68,36 88,36 L 126,36 L 126,140 C 96,140 68,124 54,98 C 52,94 52,80 52,68 Z" fill="url(#h_primary)" />
+      <!-- Lower Base -->
+      <path d="M 52,88 L 52,172 C 52,198 70,220 98,220 L 158,220 C 186,220 204,198 204,172 L 204,146 C 182,152 158,162 134,168 C 104,176 74,166 58,146 C 54,140 52,116 52,88 Z" fill="#0A2F35" />
+      <!-- Right Leaf Facet -->
+      <path d="M 204,168 C 204,192 188,206 166,206 L 128,206 L 128,104 C 156,104 182,118 198,142 C 202,148 204,158 204,168 Z" fill="url(#h_accent)" />
+      <!-- Upper Sprout -->
+      <path d="M 204,148 L 204,84 C 204,58 186,36 158,36 L 98,36 C 120,52 144,72 154,98 C 174,86 192,84 204,88 Z" fill="url(#h_accent)" />
+      <!-- Negative Space Leaf -->
+      <path d="M 88,68 C 118,68 152,90 166,124 C 166,154 138,186 108,186 C 78,186 66,152 66,124 C 66,96 76,68 88,68 Z" fill="#FFFFFF" />
+      <path d="M 88,72 C 114,76 142,96 154,126 C 140,152 116,174 96,176 C 78,160 74,136 76,116 C 78,96 82,80 88,72 Z" fill="url(#h_accent)" opacity="0.9" />
+      <path d="M 82,150 C 98,136 118,116 138,94" fill="none" stroke="#064E3B" stroke-width="2.5" stroke-linecap="round" opacity="0.45" />
+      <!-- AI Nodes -->
+      <line x1="88" y1="50" x2="138" y2="76" stroke="#10B981" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="3 3" opacity="0.8" />
+      <line x1="138" y1="76" x2="176" y2="50" stroke="#F59E0B" stroke-width="2.2" stroke-linecap="round" opacity="0.9" />
+      <circle cx="138" cy="76" r="6.5" fill="url(#h_amber)" />
+      <circle cx="138" cy="76" r="2.5" fill="#FFFFFF" />
+      <circle cx="88" cy="50" r="5" fill="#10B981" stroke="#FFFFFF" stroke-width="1.8" />
+      <circle cx="176" cy="50" r="5" fill="url(#h_amber)" stroke="#FFFFFF" stroke-width="1.8" />
+    </g>
+  </g>
+
+  <!-- Right: SaaS Wordmark "SmartPack AI" -->
+  <g transform="translate(102, 57)">
+    <!-- "SmartPack" in Deep Forest / Dark Teal -->
+    <text x="0" y="0" 
+          font-family="'Inter', 'Plus Jakarta Sans', 'Manrope', system-ui, sans-serif" 
+          font-size="34" 
+          font-weight="800" 
+          fill="#0F2942" 
+          letter-spacing="-0.6">
+      SmartPack
+    </text>
+
+    <!-- "AI" in Fresh Emerald Green with Intelligence Accent -->
+    <text x="180" y="0" 
+          font-family="'Inter', 'Plus Jakarta Sans', 'Manrope', system-ui, sans-serif" 
+          font-size="34" 
+          font-weight="800" 
+          fill="url(#h_aiGrad)" 
+          letter-spacing="-0.2">
+      AI
+    </text>
+
+    <!-- Warm Amber Intelligent Point on top of the 'I' in AI -->
+    <circle cx="212" cy="-28" r="3.2" fill="#F59E0B" />
+
+    <!-- Subtitle: Clean SaaS Functional Tag -->
+    <text x="1" y="23" 
+          font-family="'Inter', 'Plus Jakarta Sans', system-ui, sans-serif" 
+          font-size="11.5" 
+          font-weight="600" 
+          fill="#64748B" 
+          letter-spacing="0.4">
+      Intelligent Food Packaging System
+    </text>
+  </g>
+</svg>

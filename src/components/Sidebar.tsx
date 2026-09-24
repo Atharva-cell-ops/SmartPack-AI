@@ -13,7 +13,7 @@ import {
   Info
 } from 'lucide-react';
 import { NavigationTabType } from './Navbar';
-import { PackagingCommodityIcon } from './OfficialSeals';
+import { SmartPackLogo } from './OfficialSeals';
 
 interface SidebarProps {
   activeTab: NavigationTabType;
@@ -85,17 +85,17 @@ export const Sidebar: React.FC<SidebarProps> = ({
           onClick={() => handleSelect('dashboard')}
           className="flex items-center gap-3 cursor-pointer group select-none"
         >
-          <PackagingCommodityIcon className="w-10 h-10 shrink-0" />
+          <SmartPackLogo className="w-11 h-11 shrink-0 rounded-xl bg-white shadow-2xs border border-slate-200 p-1.5 group-hover:border-emerald-500 transition-colors" />
           <div className="min-w-0">
             <div className="flex items-center gap-1.5">
-              <span className="text-lg font-black text-[#0F172A] tracking-tight">SmartPack</span>
-              <span className="text-sm font-black text-[#059669]">AI</span>
-              <span className="text-[10px] font-black px-1.5 py-0.5 rounded bg-emerald-100 text-[#059669] border border-emerald-300">
-                GovTech
+              <span className="text-lg font-extrabold text-[#0F2942] tracking-tight">SmartPack</span>
+              <span className="text-base font-extrabold text-emerald-600">AI</span>
+              <span className="text-[10px] font-bold px-1.5 py-0.2 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">
+                SaaS
               </span>
             </div>
-            <p className="text-xs font-semibold text-slate-500 uppercase tracking-tight truncate">
-              FSSAI &amp; MoFPI Portal
+            <p className="text-[11px] font-medium text-slate-400 truncate">
+              Food Packaging Intelligence
             </p>
           </div>
         </div>

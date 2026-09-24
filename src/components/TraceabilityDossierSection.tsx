@@ -4,8 +4,10 @@ import { jsPDF } from 'jspdf';
 import {
   OFFICIAL_FSSAI_LOGO_URL,
   OFFICIAL_MOFPI_LOGO_URL,
+  SMARTPACK_LOGO_URL,
   OfficialFssaiLogo,
-  OfficialMofpiLogo
+  OfficialMofpiLogo,
+  SmartPackLogo
 } from './OfficialSeals';
 import {
   RecommendationResult,
@@ -209,11 +211,20 @@ export const TraceabilityDossierSection: React.FC<TraceabilityDossierSectionProp
       setIsGeneratingPdf(true);
       setPdfSuccessMessage(null);
 
-      // Preload official FSSAI and MoFPI logo assets for high-resolution vector/PNG rendering in PDF
+      // Preload official SmartPack AI, FSSAI and MoFPI logo assets for high-resolution vector/PNG rendering in PDF
+      let smartpackLogoDataUrl = '';
       let fssaiLogoDataUrl = '';
       let mofpiLogoDataUrl = '';
       try {
-        const [fssaiImg, mofpiImg] = await Promise.all([
+        const [smartpackImg, fssaiImg, mofpiImg] = await Promise.all([
+          new Promise<HTMLImageElement | null>((res) => {
+            const img = new Image();
+            img.crossOrigin = 'anonymous';
+            img.src = SMARTPACK_LOGO_URL;
+            if (img.complete) return res(img);
+            img.onload = () => res(img);
+            img.onerror = () => res(null);
+          }),
           new Promise<HTMLImageElement | null>((res) => {
             const img = new Image();
             img.crossOrigin = 'anonymous';
@@ -231,6 +242,17 @@ export const TraceabilityDossierSection: React.FC<TraceabilityDossierSectionProp
             img.onerror = () => res(null);
           })
         ]);
+
+        if (smartpackImg) {
+          const canvas = document.createElement('canvas');
+          canvas.width = smartpackImg.naturalWidth || 512;
+          canvas.height = smartpackImg.naturalHeight || 512;
+          const ctx = canvas.getContext('2d');
+          if (ctx) {
+            ctx.drawImage(smartpackImg, 0, 0);
+            smartpackLogoDataUrl = canvas.toDataURL('image/png');
+          }
+        }
 
         if (fssaiImg) {
           const canvas = document.createElement('canvas');
@@ -288,7 +310,12 @@ export const TraceabilityDossierSection: React.FC<TraceabilityDossierSectionProp
       doc.text('Food Contact Packaging Verification, Barrier Passports & Statutory FSSAI 2026 Certification', margin, 17);
       doc.text(`Generated: ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()} | Dossier Ref: ${batchId}`, margin, 22);
 
-      // Render official MoFPI and FSSAI logo badges in top right of banner
+      // Render official SmartPack AI, MoFPI and FSSAI logo badges in top right of banner
+      if (smartpackLogoDataUrl) {
+        doc.setFillColor(255, 255, 255);
+        doc.roundedRect(pageWidth - margin - 88, 4.5, 17, 15, 1.5, 1.5, 'F');
+        doc.addImage(smartpackLogoDataUrl, 'PNG', pageWidth - margin - 86.5, 5.5, 14, 13);
+      }
       if (mofpiLogoDataUrl) {
         doc.setFillColor(255, 255, 255);
         doc.roundedRect(pageWidth - margin - 69, 4.5, 39, 15, 1.5, 1.5, 'F');
@@ -575,20 +602,26 @@ export const TraceabilityDossierSection: React.FC<TraceabilityDossierSectionProp
 
   return (
     <div className="space-y-4">
-      {/* Header Summary Box */}
-      <div className="p-3.5 rounded-lg bg-emerald-50/60 border border-emerald-200 flex flex-col md:flex-row md:items-center justify-between gap-3">
-        <div className="space-y-1">
-          <div className="flex items-center gap-2">
-            <span className="px-2 py-0.5 rounded bg-emerald-700 text-white font-mono text-[10px] font-bold uppercase tracking-wider">
-              Batch: {batchId}
-            </span>
-            <span className="text-xs font-bold text-slate-800">
-              {activeCommodity.name} • Net {quantityAmount} {quantityUnit}
-            </span>
+      {/* Header Summary Box with Big Visible Logo for Judges */}
+      <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="flex items-center gap-3.5">
+          <SmartPackLogo className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-white p-1.5 border border-slate-200 shadow-2xs shrink-0" showBadge={false} />
+          <div className="space-y-1">
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="px-2.5 py-0.5 rounded-full bg-emerald-700 text-white font-mono text-[10px] font-bold uppercase tracking-wider">
+                Batch: {batchId}
+              </span>
+              <span className="text-sm font-bold text-slate-900">
+                {activeCommodity.name} • Net {quantityAmount} {quantityUnit}
+              </span>
+              <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">
+                FSSAI 2026 Aligned
+              </span>
+            </div>
+            <p className="text-xs text-slate-600 font-normal">
+              Digital product passport, physicochemical limits, FSSAI Section 2.1 compliance, and scannable QR label ready for packaging integration.
+            </p>
           </div>
-          <p className="text-xs text-slate-600 font-normal">
-            Digital product passport, physicochemical limits, FSSAI Section 2.1 compliance, and scannable QR label ready for packaging integration.
-          </p>
         </div>
 
         {/* Primary PDF Export Button */}
