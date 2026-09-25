@@ -1,76 +1,71 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
-  <!-- PURE WHITE BACKGROUND - ZERO CONTAINER / ZERO BORDER -->
+  <!-- PURE WHITE BACKGROUND -->
   <rect width="1000" height="1000" fill="#FFFFFF" />
 
   <defs>
-    <!-- TOP PARALLELOGRAM FACE GRADIENT: Light Emerald to Deep Teal -->
-    <linearGradient id="topFaceGradient" x1="22%" y1="12%" x2="78%" y2="88%">
-      <stop offset="0%" stop-color="#2ecc71" />
-      <stop offset="30%" stop-color="#1db954" />
-      <stop offset="65%" stop-color="#0e834d" />
-      <stop offset="100%" stop-color="#04563a" />
+    <!-- TOP FACE GRADIENT: Bright lime-green transitioning diagonally to deep forest emerald -->
+    <linearGradient id="topFaceGrad" x1="20%" y1="15%" x2="80%" y2="85%">
+      <stop offset="0%" stop-color="#4ade80" />
+      <stop offset="25%" stop-color="#22c55e" />
+      <stop offset="60%" stop-color="#15803d" />
+      <stop offset="100%" stop-color="#064e3b" />
     </linearGradient>
 
-    <!-- LEFT BOX PANEL GRADIENT: Deep Rich Pine / Dark Forest Teal -->
-    <linearGradient id="leftFaceGradient" x1="5%" y1="15%" x2="90%" y2="90%">
-      <stop offset="0%" stop-color="#045647" />
-      <stop offset="45%" stop-color="#02382e" />
-      <stop offset="85%" stop-color="#01241d" />
-      <stop offset="100%" stop-color="#001813" />
+    <!-- LEFT FACE GRADIENT: Deep rich dark pine / dark teal green -->
+    <linearGradient id="leftFaceGrad" x1="5%" y1="10%" x2="95%" y2="90%">
+      <stop offset="0%" stop-color="#065f46" />
+      <stop offset="40%" stop-color="#044e39" />
+      <stop offset="80%" stop-color="#023829" />
+      <stop offset="100%" stop-color="#01241a" />
     </linearGradient>
 
-    <!-- RIGHT BOX PANEL GRADIENT: Deep Teal to Dark Forest -->
-    <linearGradient id="rightFaceGradient" x1="15%" y1="10%" x2="85%" y2="90%">
-      <stop offset="0%" stop-color="#076757" />
-      <stop offset="50%" stop-color="#034439" />
-      <stop offset="100%" stop-color="#012822" />
+    <!-- RIGHT FACE GRADIENT: Dark teal green to deep forest -->
+    <linearGradient id="rightFaceGrad" x1="10%" y1="10%" x2="90%" y2="90%">
+      <stop offset="0%" stop-color="#04684c" />
+      <stop offset="50%" stop-color="#034835" />
+      <stop offset="100%" stop-color="#012b1f" />
     </linearGradient>
 
-    <!-- LEAF LEFT HALF: Bright Fresh Lime & Spring Emerald -->
-    <linearGradient id="leafLeftGradient" x1="20%" y1="10%" x2="80%" y2="90%">
-      <stop offset="0%" stop-color="#5be246" />
-      <stop offset="35%" stop-color="#32cd32" />
-      <stop offset="70%" stop-color="#1faa3a" />
-      <stop offset="100%" stop-color="#0e7c27" />
+    <!-- LEAF LEFT HALF: Bright luminous fresh spring green -->
+    <linearGradient id="leafLeftGrad" x1="25%" y1="10%" x2="75%" y2="90%">
+      <stop offset="0%" stop-color="#86efac" />
+      <stop offset="25%" stop-color="#4ade80" />
+      <stop offset="65%" stop-color="#22c55e" />
+      <stop offset="100%" stop-color="#15803d" />
     </linearGradient>
 
-    <!-- LEAF RIGHT HALF: Shaded Forest Green -->
-    <linearGradient id="leafRightGradient" x1="10%" y1="15%" x2="85%" y2="85%">
-      <stop offset="0%" stop-color="#1e9740" />
-      <stop offset="45%" stop-color="#147b31" />
-      <stop offset="85%" stop-color="#0a5921" />
-      <stop offset="100%" stop-color="#054016" />
+    <!-- LEAF RIGHT HALF: Shaded deep forest green -->
+    <linearGradient id="leafRightGrad" x1="10%" y1="15%" x2="90%" y2="85%">
+      <stop offset="0%" stop-color="#16a34a" />
+      <stop offset="45%" stop-color="#15803d" />
+      <stop offset="80%" stop-color="#0f5128" />
+      <stop offset="100%" stop-color="#053316" />
     </linearGradient>
 
-    <!-- 3D AMBER SPHERE RADIAL GRADIENT: Warm Golden Yellow to Rich Deep Orange -->
-    <radialGradient id="amberSphereGrad" cx="35%" cy="32%" r="68%">
-      <stop offset="0%" stop-color="#fff8b3" />
-      <stop offset="22%" stop-color="#ffcc24" />
-      <stop offset="58%" stop-color="#f5860b" />
-      <stop offset="90%" stop-color="#d45200" />
-      <stop offset="100%" stop-color="#b03b00" />
+    <!-- AMBER / ORANGE 3D SPHERES: Golden Yellow to Rich Warm Orange -->
+    <radialGradient id="sphereGrad1" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="25%" stop-color="#fde047" />
+      <stop offset="55%" stop-color="#f59e0b" />
+      <stop offset="85%" stop-color="#ea580c" />
+      <stop offset="100%" stop-color="#c2410c" />
     </radialGradient>
 
-    <!-- AMBER CONNECTOR BAR GRADIENTS -->
     <linearGradient id="stemGrad1" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#f5860b" />
-      <stop offset="50%" stop-color="#ffcc24" />
-      <stop offset="100%" stop-color="#f5860b" />
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="40%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#f59e0b" />
     </linearGradient>
 
     <linearGradient id="stemGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#f5860b" />
-      <stop offset="50%" stop-color="#ffbe1a" />
-      <stop offset="100%" stop-color="#db5e00" />
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="50%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#ea580c" />
     </linearGradient>
   </defs>
 
-  <!-- ======================================================== -->
-  <!-- STANDALONE EXACT SYMBOL: CENTERED ON PURE WHITE CANVAS  -->
-  <!-- ======================================================== -->
-  <g id="smartpack-exact-symbol">
-
-    <!-- 1. TOP ISOMETRIC BOX FLAP (Parallelogram with rounded vertices) -->
+  <g id="exact-logo-symbol">
+    <!-- 1. TOP ISOMETRIC FACE (Parallelogram with softly rounded corners) -->
     <path d="M 508,198
              C 522,190 540,192 554,201
              L 662,267
@@ -81,9 +76,9 @@
              C 258,335 255,319 265,307
              L 472,203
              C 483,197 496,195 508,198 Z"
-          fill="url(#topFaceGradient)" />
+          fill="url(#topFaceGrad)" />
 
-    <!-- 2. LEFT BOX WALL (Deep Teal packaging facet with smooth concave carve-out) -->
+    <!-- 2. LEFT BOX PANEL (Deep Teal, outer vertical profile + concave leaf boundary) -->
     <path d="M 235,360
              C 220,370 213,386 213,404
              L 213,596
@@ -95,9 +90,9 @@
              C 388,379 382,367 371,368
              L 255,360
              C 248,360 241,360 235,360 Z"
-          fill="url(#leftFaceGradient)" />
+          fill="url(#leftFaceGrad)" />
 
-    <!-- 3. RIGHT BOX WALL (Dark Teal outer wrapper with smooth curved base) -->
+    <!-- 3. RIGHT BOX PANEL (Dark Teal outer wrapper with curved inner border) -->
     <path d="M 622,416
              C 628,422 628,432 622,438
              C 605,458 594,484 594,514
@@ -109,9 +104,8 @@
              C 524,476 498,428 484,414
              C 478,408 484,398 493,400
              L 622,416 Z"
-          fill="url(#rightFaceGradient)" />
+          fill="url(#rightFaceGrad)" />
 
-    <!-- Right Wall Outer Hex Shell Completion -->
     <path d="M 622,416
              L 728,474
              C 742,482 748,498 748,514
@@ -125,58 +119,50 @@
              L 740,524
              C 740,510 734,498 722,490
              L 622,416 Z"
-          fill="url(#rightFaceGradient)" />
+          fill="url(#rightFaceGrad)" />
 
-    <!-- 4. ORGANIC FRESH GREEN LEAF (Formed in the center negative-space cutout) -->
-    <!-- Leaf Right Half (Shaded Rich Green Blade) -->
+    <!-- 4. ORGANIC FRESH GREEN LEAF (Centered with dual-tone shading) -->
+    <!-- Right Shaded Half -->
     <path d="M 440,782
              C 455,716 498,648 498,536
              C 498,464 472,412 458,390
              C 464,394 484,424 494,472
              C 510,548 492,668 440,782 Z"
-          fill="url(#leafRightGradient)" />
+          fill="url(#leafRightGrad)" />
 
-    <!-- Leaf Left Half (Luminous Lime / Emerald Green Curved Blade) -->
+    <!-- Left Vibrant Blade -->
     <path d="M 458,390
              C 420,440 372,512 372,596
              C 372,684 406,752 440,782
              C 440,782 492,660 492,536
              C 492,464 472,412 458,390 Z"
-          fill="url(#leafLeftGradient)" />
+          fill="url(#leafLeftGrad)" />
 
-    <!-- Delicate Organic Spine Crease -->
+    <!-- Leaf Center Crease Spine -->
     <path d="M 458,390 C 476,460 482,560 440,782"
-          fill="none" stroke="#064e3b" stroke-width="4" stroke-linecap="round" opacity="0.35" />
+          fill="none" stroke="#064e3b" stroke-width="3.5" stroke-linecap="round" opacity="0.35" />
 
-    <!-- 5. 3D AMBER/ORANGE AI SENSOR MOLECULE (Top-right corner detail) -->
-    <g id="amber-ai-nodes">
-      <!-- Cylindrical Connecting Arm 1: Anchor Node to Top Node -->
+    <!-- 5. 3D AMBER/ORANGE AI SENSOR MOLECULE (Exact 2 branches from corner node) -->
+    <g id="amber-ai-sensor">
+      <!-- Arm 1: Anchor Node to Top Node -->
       <path d="M 612,364 L 702,298"
             stroke="url(#stemGrad1)" stroke-width="26" stroke-linecap="round" />
 
-      <!-- Cylindrical Connecting Arm 2: Anchor Node to Right Node -->
+      <!-- Arm 2: Anchor Node to Right Node (NO cross bar between top and right nodes) -->
       <path d="M 612,364 L 744,402"
             stroke="url(#stemGrad2)" stroke-width="26" stroke-linecap="round" />
 
-      <!-- Cross Fillet Arm -->
-      <path d="M 702,298 L 744,402"
-            stroke="url(#stemGrad1)" stroke-width="20" stroke-linecap="round" />
-
-      <!-- Node 1: Anchor Sphere (Embedded in packaging corner) -->
-      <circle cx="612" cy="364" r="35" fill="url(#amberSphereGrad)" />
-      <!-- Specular Highlight Spot -->
-      <circle cx="602" cy="354" r="9" fill="#FFFFFF" opacity="0.75" />
+      <!-- Node 1: Anchor Sphere -->
+      <circle cx="612" cy="364" r="35" fill="url(#sphereGrad1)" />
+      <circle cx="602" cy="354" r="8" fill="#FFFFFF" opacity="0.8" />
 
       <!-- Node 2: Top Right Sphere -->
-      <circle cx="702" cy="298" r="34" fill="url(#amberSphereGrad)" />
-      <!-- Specular Highlight Spot -->
-      <circle cx="692" cy="288" r="8.5" fill="#FFFFFF" opacity="0.8" />
+      <circle cx="702" cy="298" r="34" fill="url(#sphereGrad1)" />
+      <circle cx="692" cy="288" r="7.5" fill="#FFFFFF" opacity="0.85" />
 
       <!-- Node 3: Bottom Right Sphere -->
-      <circle cx="744" cy="402" r="38" fill="url(#amberSphereGrad)" />
-      <!-- Specular Highlight Spot -->
-      <circle cx="732" cy="390" r="10" fill="#FFFFFF" opacity="0.75" />
+      <circle cx="744" cy="402" r="38" fill="url(#sphereGrad1)" />
+      <circle cx="732" cy="390" r="9" fill="#FFFFFF" opacity="0.8" />
     </g>
-
   </g>
 </svg>
