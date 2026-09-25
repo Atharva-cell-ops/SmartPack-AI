@@ -1,150 +1,181 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
-  <!-- PURE WHITE CANVAS BACKGROUND -->
-  <rect width="800" height="800" fill="#FFFFFF" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <!-- PURE WHITE BACKGROUND - ZERO CONTAINER / ZERO BORDER -->
+  <rect width="1000" height="1000" fill="#FFFFFF" />
 
   <defs>
-    <!-- Facet 1: Top Packaging Flap Gradient (Fresh Emerald to Deep Emerald) -->
-    <linearGradient id="c1_topFacet" x1="20%" y1="10%" x2="80%" y2="90%">
-      <stop offset="0%" stop-color="#10B981" />
-      <stop offset="50%" stop-color="#059669" />
-      <stop offset="100%" stop-color="#047857" />
+    <!-- TOP PARALLELOGRAM FACE GRADIENT: Light Emerald to Deep Teal -->
+    <linearGradient id="topFaceGradient" x1="22%" y1="12%" x2="78%" y2="88%">
+      <stop offset="0%" stop-color="#2ecc71" />
+      <stop offset="30%" stop-color="#1db954" />
+      <stop offset="65%" stop-color="#0e834d" />
+      <stop offset="100%" stop-color="#04563a" />
     </linearGradient>
 
-    <!-- Facet 2: Left Protective Packaging Wall (Deep Dark Forest Teal) -->
-    <linearGradient id="c1_leftFacet" x1="10%" y1="10%" x2="90%" y2="90%">
-      <stop offset="0%" stop-color="#064E3B" />
-      <stop offset="60%" stop-color="#04382A" />
-      <stop offset="100%" stop-color="#02241B" />
+    <!-- LEFT BOX PANEL GRADIENT: Deep Rich Pine / Dark Forest Teal -->
+    <linearGradient id="leftFaceGradient" x1="5%" y1="15%" x2="90%" y2="90%">
+      <stop offset="0%" stop-color="#045647" />
+      <stop offset="45%" stop-color="#02382e" />
+      <stop offset="85%" stop-color="#01241d" />
+      <stop offset="100%" stop-color="#001813" />
     </linearGradient>
 
-    <!-- Facet 3: Right Protective Packaging Wall (Deep Teal to Forest) -->
-    <linearGradient id="c1_rightFacet" x1="20%" y1="10%" x2="80%" y2="90%">
-      <stop offset="0%" stop-color="#065F46" />
-      <stop offset="60%" stop-color="#044E39" />
-      <stop offset="100%" stop-color="#022E22" />
+    <!-- RIGHT BOX PANEL GRADIENT: Deep Teal to Dark Forest -->
+    <linearGradient id="rightFaceGradient" x1="15%" y1="10%" x2="85%" y2="90%">
+      <stop offset="0%" stop-color="#076757" />
+      <stop offset="50%" stop-color="#034439" />
+      <stop offset="100%" stop-color="#012822" />
     </linearGradient>
 
-    <!-- Leaf Core Left Blade: Fresh Vibrant Natural Green -->
-    <linearGradient id="c1_leafLeft" x1="15%" y1="15%" x2="85%" y2="85%">
-      <stop offset="0%" stop-color="#34D399" />
-      <stop offset="50%" stop-color="#10B981" />
-      <stop offset="100%" stop-color="#059669" />
+    <!-- LEAF LEFT HALF: Bright Fresh Lime & Spring Emerald -->
+    <linearGradient id="leafLeftGradient" x1="20%" y1="10%" x2="80%" y2="90%">
+      <stop offset="0%" stop-color="#5be246" />
+      <stop offset="35%" stop-color="#32cd32" />
+      <stop offset="70%" stop-color="#1faa3a" />
+      <stop offset="100%" stop-color="#0e7c27" />
     </linearGradient>
 
-    <!-- Leaf Core Right Shadow: Rich Medium Forest Green -->
-    <linearGradient id="c1_leafRight" x1="10%" y1="20%" x2="90%" y2="80%">
-      <stop offset="0%" stop-color="#10B981" />
-      <stop offset="60%" stop-color="#059669" />
-      <stop offset="100%" stop-color="#047857" />
+    <!-- LEAF RIGHT HALF: Shaded Forest Green -->
+    <linearGradient id="leafRightGradient" x1="10%" y1="15%" x2="85%" y2="85%">
+      <stop offset="0%" stop-color="#1e9740" />
+      <stop offset="45%" stop-color="#147b31" />
+      <stop offset="85%" stop-color="#0a5921" />
+      <stop offset="100%" stop-color="#054016" />
     </linearGradient>
 
-    <!-- Amber AI Network Nodes: Warm Golden Amber -->
-    <linearGradient id="c1_amberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FDE68A" />
-      <stop offset="35%" stop-color="#F59E0B" />
-      <stop offset="100%" stop-color="#D97706" />
+    <!-- 3D AMBER SPHERE RADIAL GRADIENT: Warm Golden Yellow to Rich Deep Orange -->
+    <radialGradient id="amberSphereGrad" cx="35%" cy="32%" r="68%">
+      <stop offset="0%" stop-color="#fff8b3" />
+      <stop offset="22%" stop-color="#ffcc24" />
+      <stop offset="58%" stop-color="#f5860b" />
+      <stop offset="90%" stop-color="#d45200" />
+      <stop offset="100%" stop-color="#b03b00" />
+    </radialGradient>
+
+    <!-- AMBER CONNECTOR BAR GRADIENTS -->
+    <linearGradient id="stemGrad1" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f5860b" />
+      <stop offset="50%" stop-color="#ffcc24" />
+      <stop offset="100%" stop-color="#f5860b" />
+    </linearGradient>
+
+    <linearGradient id="stemGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5860b" />
+      <stop offset="50%" stop-color="#ffbe1a" />
+      <stop offset="100%" stop-color="#db5e00" />
     </linearGradient>
   </defs>
 
-  <!-- STANDALONE LOGO SYMBOL: Occupies ~60% of canvas (480px diameter within 800px) -->
-  <g id="smartpack-symbol" transform="translate(400, 400)">
-    
-    <!-- 1. TOP PACKAGING FLAP (Isometric roof structure) -->
-    <path d="M 0,-210
-             C 12,-216 26,-216 38,-210
-             L 155,-142
-             C 168,-134 170,-120 162,-108
-             L 2,-16
-             C -8,-10 -22,-10 -32,-16
-             L -156,-108
-             C -166,-115 -166,-129 -154,-138
-             L -36,-210
-             C -24,-216 -12,-216 0,-210 Z"
-          fill="url(#c1_topFacet)" />
+  <!-- ======================================================== -->
+  <!-- STANDALONE EXACT SYMBOL: CENTERED ON PURE WHITE CANVAS  -->
+  <!-- ======================================================== -->
+  <g id="smartpack-exact-symbol">
 
-    <!-- 2. LEFT PROTECTIVE WALL (Substantial packaging enclosure) -->
-    <path d="M -180,-70
-             C -194,-62 -204,-48 -204,-30
-             L -204,115
-             C -204,155 -178,194 -142,215
-             L -60,262
-             C -54,265 -48,260 -49,254
-             C -68,206 -80,148 -80,85
-             C -80,32 -62,-18 -32,-60
-             C -28,-66 -32,-74 -39,-72
-             L -158,-72
-             C -166,-72 -174,-71 -180,-70 Z"
-          fill="url(#c1_leftFacet)" />
+    <!-- 1. TOP ISOMETRIC BOX FLAP (Parallelogram with rounded vertices) -->
+    <path d="M 508,198
+             C 522,190 540,192 554,201
+             L 662,267
+             C 676,276 680,292 671,305
+             L 458,414
+             C 444,421 428,421 414,414
+             L 272,342
+             C 258,335 255,319 265,307
+             L 472,203
+             C 483,197 496,195 508,198 Z"
+          fill="url(#topFaceGradient)" />
 
-    <!-- 3. RIGHT PROTECTIVE WRAPPER (Outer structural shield) -->
-    <path d="M 38,-72
-             C 45,-74 51,-68 48,-61
-             C 32,-18 20,32 20,85
-             C 20,150 48,212 96,252
-             C 101,256 98,264 92,263
-             L 60,260
-             C 20,250 -20,215 -35,175
-             C -37,170 -33,165 -28,165
-             C -8,165 10,130 10,85
-             C 10,25 -8,-32 -25,-68
-             C -27,-73 -24,-78 -18,-78
-             L 38,-72 Z"
-          fill="url(#c1_rightFacet)" />
+    <!-- 2. LEFT BOX WALL (Deep Teal packaging facet with smooth concave carve-out) -->
+    <path d="M 235,360
+             C 220,370 213,386 213,404
+             L 213,596
+             C 213,644 246,692 288,716
+             L 384,772
+             C 392,776 401,770 398,761
+             C 362,698 334,622 334,540
+             C 334,484 352,434 382,388
+             C 388,379 382,367 371,368
+             L 255,360
+             C 248,360 241,360 235,360 Z"
+          fill="url(#leftFaceGradient)" />
 
-    <path d="M 120,-30
-             L 174,0
-             C 192,10 204,30 204,50
-             L 204,115
-             C 204,155 178,194 142,215
-             L 55,265
-             C 38,275 16,275 -1,265
-             L 10,250
-             C 40,240 85,210 115,175
-             C 145,140 160,95 160,50
-             L 160,-15
-             C 160,-28 150,-40 138,-45
-             L 120,-30 Z"
-          fill="url(#c1_rightFacet)" />
+    <!-- 3. RIGHT BOX WALL (Dark Teal outer wrapper with smooth curved base) -->
+    <path d="M 622,416
+             C 628,422 628,432 622,438
+             C 605,458 594,484 594,514
+             C 594,612 648,690 722,720
+             C 700,764 654,792 602,792
+             C 544,792 494,770 464,734
+             L 468,722
+             C 486,696 524,630 524,544
+             C 524,476 498,428 484,414
+             C 478,408 484,398 493,400
+             L 622,416 Z"
+          fill="url(#rightFaceGradient)" />
 
-    <!-- 4. NATURAL FRESH LEAF (Formed by the organic inner negative space channel) -->
-    <!-- Right Leaf Half (Deep Rich Emerald) -->
-    <path d="M -15,245
-             C 5,190 35,140 35,80
-             C 35,30 15,-10 0,-30
-             C 4,-26 22,2 28,45
-             C 38,105 18,185 -15,245 Z"
-          fill="url(#c1_leafRight)" />
+    <!-- Right Wall Outer Hex Shell Completion -->
+    <path d="M 622,416
+             L 728,474
+             C 742,482 748,498 748,514
+             L 748,652
+             C 748,692 724,730 690,750
+             L 556,824
+             C 532,838 502,838 478,824
+             L 464,734
+             C 502,768 554,788 602,788
+             C 650,788 692,756 712,718
+             L 740,524
+             C 740,510 734,498 722,490
+             L 622,416 Z"
+          fill="url(#rightFaceGradient)" />
 
-    <!-- Left Leaf Blade (Vibrant Natural Green) -->
-    <path d="M 0,-30
-             C -25,10 -55,60 -55,120
-             C -55,175 -30,225 -15,245
-             C -15,245 28,155 28,80
-             C 28,30 12,-10 0,-30 Z"
-          fill="url(#c1_leafLeft)" />
+    <!-- 4. ORGANIC FRESH GREEN LEAF (Formed in the center negative-space cutout) -->
+    <!-- Leaf Right Half (Shaded Rich Green Blade) -->
+    <path d="M 440,782
+             C 455,716 498,648 498,536
+             C 498,464 472,412 458,390
+             C 464,394 484,424 494,472
+             C 510,548 492,668 440,782 Z"
+          fill="url(#leafRightGradient)" />
 
-    <!-- Leaf Spine Seam -->
-    <path d="M 0,-30 C 12,25 15,105 -15,245"
-          fill="none" stroke="#044E39" stroke-width="3" stroke-linecap="round" opacity="0.4" />
+    <!-- Leaf Left Half (Luminous Lime / Emerald Green Curved Blade) -->
+    <path d="M 458,390
+             C 420,440 372,512 372,596
+             C 372,684 406,752 440,782
+             C 440,782 492,660 492,536
+             C 492,464 472,412 458,390 Z"
+          fill="url(#leafLeftGradient)" />
 
-    <!-- 5. SUBTLE INTEGRATED AI NODES (Tertiary detail: exactly 3 connected amber nodes on corner) -->
-    <g id="ai-corner-nodes">
-      <!-- Conduits seamlessly anchored to the upper-right package corner -->
-      <line x1="120" y1="-85" x2="185" y2="-138" stroke="#F59E0B" stroke-width="12" stroke-linecap="round" />
-      <line x1="120" y1="-85" x2="215" y2="-62" stroke="#F59E0B" stroke-width="12" stroke-linecap="round" />
-      <line x1="185" y1="-138" x2="215" y2="-62" stroke="#F59E0B" stroke-width="9" stroke-linecap="round" />
+    <!-- Delicate Organic Spine Crease -->
+    <path d="M 458,390 C 476,460 482,560 440,782"
+          fill="none" stroke="#064e3b" stroke-width="4" stroke-linecap="round" opacity="0.35" />
 
-      <!-- Anchor Node 1 -->
-      <circle cx="120" cy="-85" r="22" fill="url(#c1_amberGrad)" />
-      <circle cx="114" cy="-91" r="6" fill="#FFFFFF" opacity="0.75" />
+    <!-- 5. 3D AMBER/ORANGE AI SENSOR MOLECULE (Top-right corner detail) -->
+    <g id="amber-ai-nodes">
+      <!-- Cylindrical Connecting Arm 1: Anchor Node to Top Node -->
+      <path d="M 612,364 L 702,298"
+            stroke="url(#stemGrad1)" stroke-width="26" stroke-linecap="round" />
 
-      <!-- Apex Node 2 -->
-      <circle cx="185" cy="-138" r="21" fill="url(#c1_amberGrad)" />
-      <circle cx="179" cy="-144" r="5.5" fill="#FFFFFF" opacity="0.8" />
+      <!-- Cylindrical Connecting Arm 2: Anchor Node to Right Node -->
+      <path d="M 612,364 L 744,402"
+            stroke="url(#stemGrad2)" stroke-width="26" stroke-linecap="round" />
 
-      <!-- Peripheral Node 3 -->
-      <circle cx="215" cy="-62" r="24" fill="url(#c1_amberGrad)" />
-      <circle cx="208" cy="-69" r="6.5" fill="#FFFFFF" opacity="0.75" />
+      <!-- Cross Fillet Arm -->
+      <path d="M 702,298 L 744,402"
+            stroke="url(#stemGrad1)" stroke-width="20" stroke-linecap="round" />
+
+      <!-- Node 1: Anchor Sphere (Embedded in packaging corner) -->
+      <circle cx="612" cy="364" r="35" fill="url(#amberSphereGrad)" />
+      <!-- Specular Highlight Spot -->
+      <circle cx="602" cy="354" r="9" fill="#FFFFFF" opacity="0.75" />
+
+      <!-- Node 2: Top Right Sphere -->
+      <circle cx="702" cy="298" r="34" fill="url(#amberSphereGrad)" />
+      <!-- Specular Highlight Spot -->
+      <circle cx="692" cy="288" r="8.5" fill="#FFFFFF" opacity="0.8" />
+
+      <!-- Node 3: Bottom Right Sphere -->
+      <circle cx="744" cy="402" r="38" fill="url(#amberSphereGrad)" />
+      <!-- Specular Highlight Spot -->
+      <circle cx="732" cy="390" r="10" fill="#FFFFFF" opacity="0.75" />
     </g>
 
   </g>
