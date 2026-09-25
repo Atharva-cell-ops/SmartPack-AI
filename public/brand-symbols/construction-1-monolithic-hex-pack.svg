@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <rect width="800" height="800" fill="#FFFFFF" />
+  <defs>
+    <linearGradient id="c1_top" x1="20%" y1="10%" x2="80%" y2="90%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="50%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+    <linearGradient id="c1_left" x1="10%" y1="10%" x2="90%" y2="90%">
+      <stop offset="0%" stop-color="#064E3B" />
+      <stop offset="60%" stop-color="#04382A" />
+      <stop offset="100%" stop-color="#02241B" />
+    </linearGradient>
+    <linearGradient id="c1_right" x1="20%" y1="20%" x2="80%" y2="90%">
+      <stop offset="0%" stop-color="#065F46" />
+      <stop offset="60%" stop-color="#044E39" />
+      <stop offset="100%" stop-color="#022E22" />
+    </linearGradient>
+    <linearGradient id="c1_leafL" x1="15%" y1="15%" x2="85%" y2="85%">
+      <stop offset="0%" stop-color="#34D399" />
+      <stop offset="50%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="c1_leafR" x1="10%" y1="20%" x2="90%" y2="80%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="60%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+    <linearGradient id="c1_amber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A" />
+      <stop offset="35%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(400, 400)">
+    <!-- Top Flap -->
+    <path d="M 0,-210 C 12,-216 26,-216 38,-210 L 155,-142 C 168,-134 170,-120 162,-108 L 2,-16 C -8,-10 -22,-10 -32,-16 L -156,-108 C -166,-115 -166,-129 -154,-138 L -36,-210 C -24,-216 -12,-216 0,-210 Z" fill="url(#c1_top)" />
+    <!-- Left Wall -->
+    <path d="M -180,-70 C -194,-62 -204,-48 -204,-30 L -204,115 C -204,155 -178,194 -142,215 L -60,262 C -54,265 -48,260 -49,254 C -68,206 -80,148 -80,85 C -80,32 -62,-18 -32,-60 C -28,-66 -32,-74 -39,-72 L -158,-72 C -166,-72 -174,-71 -180,-70 Z" fill="url(#c1_left)" />
+    <!-- Right Wall -->
+    <path d="M 120,-30 L 174,0 C 192,10 204,30 204,50 L 204,115 C 204,155 178,194 142,215 L 55,265 C 38,275 16,275 -1,265 L 10,250 C 40,240 85,210 115,175 C 145,140 160,95 160,50 L 160,-15 C 160,-28 150,-40 138,-45 L 120,-30 Z" fill="url(#c1_right)" />
+    <!-- Negative Space Leaf -->
+    <path d="M -15,245 C 5,190 35,140 35,80 C 35,30 15,-10 0,-30 C 4,-26 22,2 28,45 C 38,105 18,185 -15,245 Z" fill="url(#c1_leafR)" />
+    <path d="M 0,-30 C -25,10 -55,60 -55,120 C -55,175 -30,225 -15,245 C -15,245 28,155 28,80 C 28,30 12,-10 0,-30 Z" fill="url(#c1_leafL)" />
+    <path d="M 0,-30 C 12,25 15,105 -15,245" fill="none" stroke="#044E39" stroke-width="3" stroke-linecap="round" opacity="0.4" />
+    <!-- 3 Connected AI Nodes -->
+    <line x1="120" y1="-85" x2="185" y2="-138" stroke="#F59E0B" stroke-width="12" stroke-linecap="round" />
+    <line x1="120" y1="-85" x2="215" y2="-62" stroke="#F59E0B" stroke-width="12" stroke-linecap="round" />
+    <line x1="185" y1="-138" x2="215" y2="-62" stroke="#F59E0B" stroke-width="9" stroke-linecap="round" />
+    <circle cx="120" cy="-85" r="22" fill="url(#c1_amber)" />
+    <circle cx="114" cy="-91" r="6" fill="#FFFFFF" opacity="0.75" />
+    <circle cx="185" cy="-138" r="21" fill="url(#c1_amber)" />
+    <circle cx="179" cy="-144" r="5.5" fill="#FFFFFF" opacity="0.8" />
+    <circle cx="215" cy="-62" r="24" fill="url(#c1_amber)" />
+    <circle cx="208" cy="-69" r="6.5" fill="#FFFFFF" opacity="0.75" />
+  </g>
+</svg>

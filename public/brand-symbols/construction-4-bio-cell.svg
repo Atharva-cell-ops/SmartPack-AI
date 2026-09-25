@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <rect width="800" height="800" fill="#FFFFFF" />
+  <defs>
+    <linearGradient id="c4_hexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064E3B" />
+      <stop offset="50%" stop-color="#0F766E" />
+      <stop offset="100%" stop-color="#042F2E" />
+    </linearGradient>
+    <linearGradient id="c4_leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34D399" />
+      <stop offset="50%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="c4_amber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A" />
+      <stop offset="60%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(400, 400)">
+    <!-- Hexagonal Packaging Hull with Negative Space Leaf Cutout -->
+    <!-- Heavy 2D Hexagonal Monolith Outer Profile -->
+    <path d="M 0,-220 L 190,-110 L 190,110 L 0,220 L -190,110 L -190,-110 Z" fill="none" stroke="url(#c4_hexGrad)" stroke-width="48" stroke-linejoin="round" stroke-linecap="round" />
+
+    <!-- Center Organic Fresh Produce Leaf Geometry -->
+    <path d="M 0,-150 C 70,-80 90,40 40,130 C 0,170 -40,160 -70,120 C -90,40 -60,-80 0,-150 Z" fill="url(#c4_leafGrad)" />
+
+    <!-- Leaf Vein Negative Void -->
+    <path d="M 0,-130 C 20,-50 20,40 0,130" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" />
+
+    <!-- AI Node Cluster at Top Right Vertex (2 Nodes) -->
+    <line x1="190" y1="-110" x2="245" y2="-150" stroke="#F59E0B" stroke-width="12" stroke-linecap="round" />
+    <circle cx="190" cy="-110" r="22" fill="url(#c4_amber)" />
+    <circle cx="245" cy="-150" r="18" fill="url(#c4_amber)" />
+    <circle cx="240" cy="-155" r="5" fill="#FFFFFF" opacity="0.8" />
+  </g>
+</svg>
