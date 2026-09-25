@@ -2,15 +2,16 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Upload } from 'lucide-react';
 import fssaiLogoAsset from '../assets/fssai-logo.png';
 import mofpiLogoAsset from '../assets/mofpi-logo.png';
+import smartpackPngAsset from '../assets/smartpack-ai-logo.png';
 import smartpackSvgAsset from '../assets/smartpack-symbol.svg';
 
 export const OFFICIAL_FSSAI_LOGO_URL = fssaiLogoAsset;
 export const OFFICIAL_MOFPI_LOGO_URL = mofpiLogoAsset;
-export const SMARTPACK_LOGO_URL = smartpackSvgAsset;
-export const SMARTPACK_SVG_URL = smartpackSvgAsset;
+export const SMARTPACK_LOGO_URL = smartpackPngAsset;
+export const SMARTPACK_SVG_URL = smartpackPngAsset;
 
 /**
- * Hook to retrieve active logo image (supports exact raw pasted/uploaded user logo or definitive SVG)
+ * Hook to retrieve active logo image (uses exact untouched uploaded reference logo)
  */
 export function useActiveLogo() {
   const [logoSrc, setLogoSrc] = useState<string>(() => {
@@ -18,13 +19,13 @@ export function useActiveLogo() {
       const stored = localStorage.getItem('smartpack_custom_logo');
       if (stored) return stored;
     }
-    return smartpackSvgAsset;
+    return smartpackPngAsset;
   });
 
   useEffect(() => {
     const handleUpdate = () => {
       const stored = localStorage.getItem('smartpack_custom_logo');
-      setLogoSrc(stored || smartpackSvgAsset);
+      setLogoSrc(stored || smartpackPngAsset);
     };
 
     window.addEventListener('smartpack_logo_updated', handleUpdate);
