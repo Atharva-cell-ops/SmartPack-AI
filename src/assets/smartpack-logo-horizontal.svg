@@ -1,87 +1,107 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 100" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 100" width="100%" height="100%" fill="none">
   <defs>
-    <linearGradient id="h_primary" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#064E3B" />
-      <stop offset="55%" stop-color="#0D3B36" />
-      <stop offset="100%" stop-color="#0F2942" />
+    <!-- Top Face Gradient: Bright Emerald to Deep Teal -->
+    <linearGradient id="h_cubeTop" x1="28%" y1="12%" x2="72%" y2="88%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="45%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#04684c" />
     </linearGradient>
 
-    <linearGradient id="h_accent" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#047857" />
-      <stop offset="60%" stop-color="#10B981" />
-      <stop offset="100%" stop-color="#34D399" />
+    <!-- Left Box Panel: Deep Dark Teal -->
+    <linearGradient id="h_cubeLeft" x1="0%" y1="15%" x2="90%" y2="85%">
+      <stop offset="0%" stop-color="#03483b" />
+      <stop offset="50%" stop-color="#023329" />
+      <stop offset="100%" stop-color="#01221b" />
     </linearGradient>
 
-    <linearGradient id="h_amber" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FDE68A" />
-      <stop offset="50%" stop-color="#F59E0B" />
-      <stop offset="100%" stop-color="#D97706" />
+    <!-- Right Box Panel -->
+    <linearGradient id="h_cubeRight" x1="20%" y1="20%" x2="100%" y2="90%">
+      <stop offset="0%" stop-color="#065846" />
+      <stop offset="60%" stop-color="#023a2f" />
+      <stop offset="100%" stop-color="#01241d" />
     </linearGradient>
 
-    <linearGradient id="h_aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#059669" />
-      <stop offset="100%" stop-color="#10B981" />
+    <!-- Leaf Left -->
+    <linearGradient id="h_leafLeft" x1="15%" y1="15%" x2="85%" y2="90%">
+      <stop offset="0%" stop-color="#4ade80" />
+      <stop offset="40%" stop-color="#22c55e" />
+      <stop offset="100%" stop-color="#16a34a" />
     </linearGradient>
+
+    <!-- Leaf Right -->
+    <linearGradient id="h_leafRight" x1="0%" y1="20%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#15803d" />
+      <stop offset="70%" stop-color="#0f6730" />
+      <stop offset="100%" stop-color="#0a4d23" />
+    </linearGradient>
+
+    <radialGradient id="h_sphereGrad" cx="38%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="35%" stop-color="#fbbf24" />
+      <stop offset="75%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#b45309" />
+    </radialGradient>
   </defs>
 
-  <!-- Left: Pure SaaS Symbol (76x76, at x=10, y=12) -->
-  <g transform="translate(10, 12)">
-    <g transform="scale(0.296875)">
-      <!-- Left Facet -->
-      <path d="M 52,68 C 52,48 68,36 88,36 L 126,36 L 126,140 C 96,140 68,124 54,98 C 52,94 52,80 52,68 Z" fill="url(#h_primary)" />
-      <!-- Lower Base -->
-      <path d="M 52,88 L 52,172 C 52,198 70,220 98,220 L 158,220 C 186,220 204,198 204,172 L 204,146 C 182,152 158,162 134,168 C 104,176 74,166 58,146 C 54,140 52,116 52,88 Z" fill="#0A2F35" />
-      <!-- Right Leaf Facet -->
-      <path d="M 204,168 C 204,192 188,206 166,206 L 128,206 L 128,104 C 156,104 182,118 198,142 C 202,148 204,158 204,168 Z" fill="url(#h_accent)" />
-      <!-- Upper Sprout -->
-      <path d="M 204,148 L 204,84 C 204,58 186,36 158,36 L 98,36 C 120,52 144,72 154,98 C 174,86 192,84 204,88 Z" fill="url(#h_accent)" />
-      <!-- Negative Space Leaf -->
-      <path d="M 88,68 C 118,68 152,90 166,124 C 166,154 138,186 108,186 C 78,186 66,152 66,124 C 66,96 76,68 88,68 Z" fill="#FFFFFF" />
-      <path d="M 88,72 C 114,76 142,96 154,126 C 140,152 116,174 96,176 C 78,160 74,136 76,116 C 78,96 82,80 88,72 Z" fill="url(#h_accent)" opacity="0.9" />
-      <path d="M 82,150 C 98,136 118,116 138,94" fill="none" stroke="#064E3B" stroke-width="2.5" stroke-linecap="round" opacity="0.45" />
-      <!-- AI Nodes -->
-      <line x1="88" y1="50" x2="138" y2="76" stroke="#10B981" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="3 3" opacity="0.8" />
-      <line x1="138" y1="76" x2="176" y2="50" stroke="#F59E0B" stroke-width="2.2" stroke-linecap="round" opacity="0.9" />
-      <circle cx="138" cy="76" r="6.5" fill="url(#h_amber)" />
-      <circle cx="138" cy="76" r="2.5" fill="#FFFFFF" />
-      <circle cx="88" cy="50" r="5" fill="#10B981" stroke="#FFFFFF" stroke-width="1.8" />
-      <circle cx="176" cy="50" r="5" fill="url(#h_amber)" stroke="#FFFFFF" stroke-width="1.8" />
-    </g>
+  <!-- Left: Official Symbol (Scaled from 512x512 down to fit 76x76 at x=10, y=12) -->
+  <g transform="translate(10, 10) scale(0.156)">
+    <!-- Top Face -->
+    <path d="M 264,100 C 272,96 280,96 288,101 L 336,128 C 344,133 346,141 341,148 L 242,201 C 234,205 224,205 216,201 L 142,160 C 134,155 133,146 138,140 L 240,103 C 248,100 256,98 264,100 Z" fill="url(#h_cubeTop)" />
+    
+    <!-- Left Panel -->
+    <path d="M 124,178 C 114,184 108,194 108,206 L 108,310 C 108,338 126,366 150,380 L 205,412 C 209,414 213,411 211,407 C 186,368 171,320 171,270 C 171,248 178,228 190,210 L 208,188 C 212,183 209,176 203,178 L 124,178 Z" fill="url(#h_cubeLeft)" />
+    
+    <!-- Right Panel -->
+    <path d="M 318,212 L 374,242 C 382,246 386,255 386,264 L 386,346 C 386,370 372,392 352,404 L 280,446 C 264,455 244,455 228,446 L 236,396 C 256,416 288,428 316,428 C 346,428 372,408 382,384 L 382,268 C 382,260 378,252 370,248 L 318,212 Z" fill="url(#h_cubeRight)" />
+    
+    <!-- White Gap -->
+    <path d="M 172,270 C 172,330 196,385 225,424 C 227,427 231,426 232,422 C 238,390 262,352 262,290 C 262,242 245,214 235,202 C 232,198 226,199 224,204 C 202,238 172,250 172,270 Z" fill="none" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+    
+    <!-- Leaf -->
+    <path d="M 225,422 C 232,385 258,348 258,285 C 258,245 244,216 235,204 C 238,206 250,224 256,252 C 265,296 254,360 225,422 Z" fill="url(#h_leafRight)" />
+    <path d="M 235,204 C 214,232 188,272 188,318 C 188,368 206,406 225,422 C 225,422 254,355 254,285 C 254,245 242,216 235,204 Z" fill="url(#h_leafLeft)" />
+
+    <!-- Orange Node Network -->
+    <path d="M 315,190 L 362,152" stroke="#fbbf24" stroke-width="14" stroke-linecap="round" />
+    <path d="M 315,190 L 388,212" stroke="#f59e0b" stroke-width="14" stroke-linecap="round" />
+    <circle cx="315" cy="190" r="19" fill="url(#h_sphereGrad)" />
+    <circle cx="362" cy="152" r="18" fill="url(#h_sphereGrad)" />
+    <circle cx="388" cy="212" r="21" fill="url(#h_sphereGrad)" />
   </g>
 
   <!-- Right: SaaS Wordmark "SmartPack AI" -->
-  <g transform="translate(102, 57)">
+  <g transform="translate(100, 56)">
     <!-- "SmartPack" in Deep Forest / Dark Teal -->
     <text x="0" y="0" 
           font-family="'Inter', 'Plus Jakarta Sans', 'Manrope', system-ui, sans-serif" 
-          font-size="34" 
+          font-size="36" 
           font-weight="800" 
           fill="#0F2942" 
           letter-spacing="-0.6">
       SmartPack
     </text>
 
-    <!-- "AI" in Fresh Emerald Green with Intelligence Accent -->
-    <text x="180" y="0" 
+    <!-- "AI" in Vivid Emerald with Amber Accent Dot -->
+    <text x="188" y="0" 
           font-family="'Inter', 'Plus Jakarta Sans', 'Manrope', system-ui, sans-serif" 
-          font-size="34" 
+          font-size="36" 
           font-weight="800" 
-          fill="url(#h_aiGrad)" 
-          letter-spacing="-0.2">
+          fill="#059669" 
+          letter-spacing="-0.4">
       AI
     </text>
 
-    <!-- Warm Amber Intelligent Point on top of the 'I' in AI -->
-    <circle cx="212" cy="-28" r="3.2" fill="#F59E0B" />
+    <!-- Connected AI Accent Dot -->
+    <circle cx="236" cy="-22" r="4.5" fill="#F59E0B" />
 
-    <!-- Subtitle: Clean SaaS Functional Tag -->
-    <text x="1" y="23" 
+    <!-- Subtitle Category Tagline -->
+    <text x="2" y="24" 
           font-family="'Inter', 'Plus Jakarta Sans', system-ui, sans-serif" 
           font-size="11.5" 
           font-weight="600" 
           fill="#64748B" 
-          letter-spacing="0.4">
-      Intelligent Food Packaging System
+          letter-spacing="0.8">
+      INTELLIGENT FOOD PACKAGING PLATFORM
     </text>
   </g>
 </svg>

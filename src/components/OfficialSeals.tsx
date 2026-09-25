@@ -1,53 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import fssaiLogoAsset from '../assets/fssai-logo.png';
 import mofpiLogoAsset from '../assets/mofpi-logo.png';
-import smartpackLogoAsset from '../assets/image.png';
-import smartpackSvgAsset from '../assets/smartpack-logo.svg';
-import smartpackHorizontalAsset from '../assets/smartpack-logo-horizontal.png';
-import smartpackHorizontalSvg from '../assets/smartpack-logo-horizontal.svg';
+import smartpackSvgAsset from '../assets/smartpack-symbol.svg';
 
 export const OFFICIAL_FSSAI_LOGO_URL = fssaiLogoAsset;
 export const OFFICIAL_MOFPI_LOGO_URL = mofpiLogoAsset;
-export const SMARTPACK_LOGO_URL = smartpackLogoAsset;
+export const SMARTPACK_LOGO_URL = smartpackSvgAsset;
 export const SMARTPACK_SVG_URL = smartpackSvgAsset;
-export const SMARTPACK_HORIZONTAL_LOGO_URL = smartpackHorizontalSvg;
-
-/**
- * Hook to retrieve user-configured custom logo from localStorage or default
- */
-export function useActiveLogo() {
-  const [logoSrc, setLogoSrc] = useState<string>(() => {
-    if (typeof window !== 'undefined') {
-      const stored = localStorage.getItem('smartpack_custom_logo');
-      if (stored) return stored;
-    }
-    return smartpackLogoAsset || '/image.png';
-  });
-
-  useEffect(() => {
-    const handleUpdate = () => {
-      const stored = localStorage.getItem('smartpack_custom_logo');
-      if (stored) {
-        setLogoSrc(stored);
-      } else {
-        setLogoSrc(smartpackLogoAsset || '/image.png');
-      }
-    };
-
-    window.addEventListener('smartpack_logo_updated', handleUpdate);
-    window.addEventListener('storage', handleUpdate);
-    return () => {
-      window.removeEventListener('smartpack_logo_updated', handleUpdate);
-      window.removeEventListener('storage', handleUpdate);
-    };
-  }, []);
-
-  return logoSrc;
-}
 
 /**
  * Official SmartPack AI Logo Component
- * Renders the high-definition SmartPack AI branding emblem with fallback and interactive upload support.
+ * Renders the definitive official SmartPack AI branding emblem with zero multiple options.
  */
 export const SmartPackLogo: React.FC<{
   className?: string;
@@ -62,33 +25,18 @@ export const SmartPackLogo: React.FC<{
   alt = 'SmartPack AI Product Logo',
   onClick
 }) => {
-  const activeLogo = useActiveLogo();
-  const [hasError, setHasError] = useState(false);
-
   return (
     <div
       onClick={onClick}
       className={`relative inline-flex items-center justify-center shrink-0 transition-all duration-200 select-none group ${className}`}
       title="SmartPack AI — Intelligent Food Packaging System"
     >
-      {!hasError ? (
-        <img
-          src={activeLogo}
-          alt={alt}
-          onError={() => setHasError(true)}
-          className={`w-full h-full object-contain transition-transform duration-200 group-hover:scale-105 ${imgClassName}`}
-          loading="eager"
-          referrerPolicy="no-referrer"
-        />
-      ) : (
-        /* Crisp Vector Fallback if image file is not found */
-        <img
-          src={smartpackSvgAsset}
-          alt={alt}
-          className={`w-full h-full object-contain ${imgClassName}`}
-          loading="eager"
-        />
-      )}
+      <img
+        src={smartpackSvgAsset}
+        alt={alt}
+        className={`w-full h-full object-contain transition-transform duration-200 group-hover:scale-105 ${imgClassName}`}
+        loading="eager"
+      />
 
       {showBadge && (
         <span className="absolute -top-1 -right-1 px-1 py-0.2 text-[8px] font-black bg-emerald-600 text-white border border-white rounded-full shadow-xs tracking-wider">
@@ -115,16 +63,19 @@ export const SmartPackHorizontalBrand: React.FC<{
   return (
     <div
       onClick={onClick}
-      className={`inline-flex items-center justify-center select-none cursor-pointer hover:opacity-90 transition-opacity ${className}`}
+      className={`inline-flex items-center justify-center select-none cursor-pointer hover:opacity-90 transition-opacity gap-2.5 ${className}`}
       title="SmartPack AI — Intelligent Food Packaging Recommendation System"
     >
       <img
-        src={smartpackHorizontalSvg}
-        alt="SmartPack AI Product Identity"
-        className={imgClassName}
+        src={smartpackSvgAsset}
+        alt="SmartPack AI Symbol"
+        className="h-full w-auto object-contain shrink-0"
         loading="eager"
-        referrerPolicy="no-referrer"
       />
+      <div className="flex items-center gap-1.5 leading-none">
+        <span className="text-xl font-black text-[#0F2942] tracking-tight">SmartPack</span>
+        <span className="text-xl font-black text-emerald-600">AI</span>
+      </div>
     </div>
   );
 };
