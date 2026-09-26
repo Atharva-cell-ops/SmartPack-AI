@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Upload } from 'lucide-react';
+import React from 'react';
 import fssaiLogoAsset from '../assets/fssai-logo.png';
 import mofpiLogoAsset from '../assets/mofpi-logo.png';
 import smartpackPngAsset from '../assets/smartpack-ai-logo.png';
@@ -11,63 +10,15 @@ export const SMARTPACK_LOGO_URL = smartpackPngAsset;
 export const SMARTPACK_SVG_URL = smartpackPngAsset;
 
 /**
- * Hook to retrieve active logo image (uses exact untouched uploaded reference logo)
+ * Hook to retrieve active logo image (official SmartPack AI logo)
  */
 export function useActiveLogo() {
-  const [logoSrc, setLogoSrc] = useState<string>(() => {
-    if (typeof window !== 'undefined') {
-      const stored = localStorage.getItem('smartpack_custom_logo');
-      if (stored) return stored;
-    }
-    return smartpackPngAsset;
-  });
-
-  useEffect(() => {
-    const handleUpdate = () => {
-      const stored = localStorage.getItem('smartpack_custom_logo');
-      setLogoSrc(stored || smartpackPngAsset);
-    };
-
-    window.addEventListener('smartpack_logo_updated', handleUpdate);
-    window.addEventListener('storage', handleUpdate);
-
-    // Global Paste Listener: allows the user to press Ctrl+V / Cmd+V anywhere to paste their exact image
-    const handlePaste = (e: ClipboardEvent) => {
-      const items = e.clipboardData?.items;
-      if (!items) return;
-      for (let i = 0; i < items.length; i++) {
-        if (items[i].type.startsWith('image/')) {
-          const file = items[i].getAsFile();
-          if (file) {
-            const reader = new FileReader();
-            reader.onload = (event) => {
-              const dataUrl = event.target?.result as string;
-              if (dataUrl) {
-                localStorage.setItem('smartpack_custom_logo', dataUrl);
-                window.dispatchEvent(new Event('smartpack_logo_updated'));
-              }
-            };
-            reader.readAsDataURL(file);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('paste', handlePaste);
-    return () => {
-      window.removeEventListener('smartpack_logo_updated', handleUpdate);
-      window.removeEventListener('storage', handleUpdate);
-      window.removeEventListener('paste', handlePaste);
-    };
-  }, []);
-
-  return logoSrc;
+  return smartpackPngAsset;
 }
 
 /**
  * Official SmartPack AI Logo Component
- * Displays the exact logo with instant drag-and-drop & clipboard paste support.
+ * Clean presentation of the official SmartPack AI logo.
  */
 export const SmartPackLogo: React.FC<{
   className?: string;
@@ -82,66 +33,16 @@ export const SmartPackLogo: React.FC<{
   alt = 'SmartPack AI Product Logo',
   onClick
 }) => {
-  const activeLogo = useActiveLogo();
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const handleDrop = (e: React.DragEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      const file = e.dataTransfer.files[0];
-      if (file.type.startsWith('image/')) {
-        const reader = new FileReader();
-        reader.onload = (event) => {
-          const dataUrl = event.target?.result as string;
-          if (dataUrl) {
-            localStorage.setItem('smartpack_custom_logo', dataUrl);
-            window.dispatchEvent(new Event('smartpack_logo_updated'));
-          }
-        };
-        reader.readAsDataURL(file);
-      }
-    }
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      const file = e.target.files[0];
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        const dataUrl = event.target?.result as string;
-        if (dataUrl) {
-          localStorage.setItem('smartpack_custom_logo', dataUrl);
-          window.dispatchEvent(new Event('smartpack_logo_updated'));
-        }
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
   return (
     <div
       onClick={onClick}
-      onDragOver={(e) => {
-        e.preventDefault();
-        e.stopPropagation();
-      }}
-      onDrop={handleDrop}
-      className={`relative inline-flex items-center justify-center shrink-0 transition-all duration-200 select-none group cursor-pointer ${className}`}
-      title="SmartPack AI Logo (Tip: Press Ctrl+V to paste your exact logo, or drag & drop your image here)"
+      className={`relative inline-flex items-center justify-center shrink-0 transition-all duration-200 select-none ${className}`}
+      title="SmartPack AI Logo"
     >
-      <input
-        type="file"
-        ref={fileInputRef}
-        onChange={handleFileChange}
-        accept="image/*"
-        className="hidden"
-      />
-
       <img
-        src={activeLogo}
+        src={smartpackPngAsset}
         alt={alt}
-        className={`w-full h-full object-contain transition-transform duration-200 group-hover:scale-105 ${imgClassName}`}
+        className={`w-full h-full object-contain ${imgClassName}`}
         loading="eager"
       />
 
@@ -150,18 +51,6 @@ export const SmartPackLogo: React.FC<{
           AI
         </span>
       )}
-
-      <button
-        type="button"
-        onClick={(e) => {
-          e.stopPropagation();
-          fileInputRef.current?.click();
-        }}
-        title="Upload or pick your exact logo image file"
-        className="absolute -bottom-1 -right-1 p-1 bg-white hover:bg-emerald-50 text-slate-500 hover:text-emerald-700 rounded-full border border-slate-200 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity z-10"
-      >
-        <Upload className="w-3 h-3" />
-      </button>
     </div>
   );
 };
@@ -179,8 +68,6 @@ export const SmartPackHorizontalBrand: React.FC<{
   imgClassName = 'h-full w-auto object-contain',
   onClick
 }) => {
-  const activeLogo = useActiveLogo();
-
   return (
     <div
       onClick={onClick}
@@ -188,7 +75,7 @@ export const SmartPackHorizontalBrand: React.FC<{
       title="SmartPack AI — Intelligent Food Packaging Recommendation System"
     >
       <img
-        src={activeLogo}
+        src={smartpackPngAsset}
         alt="SmartPack AI Symbol"
         className="h-full w-auto object-contain shrink-0"
         loading="eager"
