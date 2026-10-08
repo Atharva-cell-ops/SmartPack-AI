@@ -10,8 +10,7 @@ import {
   Package,
   Scale,
   SlidersHorizontal,
-  Info,
-  Globe
+  Info
 } from 'lucide-react';
 import { NavigationTabType } from './Navbar';
 import { SmartPackLogo } from './OfficialSeals';
@@ -31,20 +30,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
   isOpen,
   setIsOpen
 }) => {
-  interface NavTabItem {
+  // Primary navigation items with clean Lucide line icons (1.5px stroke weight)
+  const navTabs: {
     id: NavigationTabType;
     label: string;
     icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
     badge?: string;
-  }
-
-  const navTabs: NavTabItem[] = [
-    {
-      id: 'tinyfish',
-      label: 'Packaging Research',
-      icon: Globe,
-      badge: 'NEW'
-    },
+  }[] = [
     {
       id: 'dashboard',
       label: 'Dashboard',

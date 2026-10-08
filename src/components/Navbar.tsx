@@ -1,7 +1,7 @@
 import React from 'react';
-import { Package, Sparkles, Scale, Sliders, Database, Info, Layers, SearchCheck, Globe } from 'lucide-react';
+import { Package, Sparkles, Scale, Sliders, Database, Info, Layers, SearchCheck } from 'lucide-react';
 
-export type NavigationTabType = 'dashboard' | 'recommendation' | 'materials' | 'compare' | 'what-if' | 'audit' | 'about' | 'tinyfish';
+export type NavigationTabType = 'dashboard' | 'recommendation' | 'materials' | 'compare' | 'what-if' | 'audit' | 'about';
 
 interface NavbarProps {
   activeTab: NavigationTabType;
@@ -49,18 +49,6 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onQuick
             >
               <Layers className="w-4 h-4" />
               Dashboard
-            </button>
-            <button
-              id="nav-tab-tinyfish"
-              onClick={() => setActiveTab('tinyfish')}
-              className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1.5 ${
-                activeTab === 'tinyfish'
-                  ? 'bg-emerald-50 text-emerald-800 font-semibold border border-emerald-200/60'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
-              }`}
-            >
-              <Globe className="w-4 h-4 text-emerald-600" />
-              Research
             </button>
             <button
               id="nav-tab-recommendation"
@@ -159,14 +147,6 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onQuick
           }`}
         >
           Dashboard
-        </button>
-        <button
-          onClick={() => setActiveTab('tinyfish')}
-          className={`px-2.5 py-1.5 rounded-md font-medium whitespace-nowrap ${
-            activeTab === 'tinyfish' ? 'bg-white text-emerald-700 shadow-xs font-bold' : 'text-slate-600'
-          }`}
-        >
-          Research
         </button>
         <button
           onClick={() => setActiveTab('recommendation')}

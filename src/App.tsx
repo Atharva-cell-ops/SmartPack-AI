@@ -12,7 +12,6 @@ import { ExistingPackageAuditView } from './components/ExistingPackageAuditView'
 import { AboutView } from './components/AboutView';
 import { DisclaimerBanner } from './components/DisclaimerBanner';
 import { FssaiLogo, MofpiLogo, PackagingCommodityIcon } from './components/OfficialSeals';
-import { TinyFishSearch } from './components/tinyfish';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<NavigationTabType>('dashboard');
@@ -90,7 +89,7 @@ export default function App() {
                 </button>
                 <span className="text-slate-400">/</span>
                 <span className="text-slate-700 font-semibold capitalize">
-                  {activeTab === 'recommendation' ? 'New Evaluation Wizard' : activeTab === 'tinyfish' ? 'Packaging Research' : activeTab.replace('-', ' ')}
+                  {activeTab === 'recommendation' ? 'New Evaluation Wizard' : activeTab.replace('-', ' ')}
                 </span>
               </div>
               <button
@@ -163,11 +162,6 @@ export default function App() {
         {activeTab === 'about' && (
           <AboutView />
         )}
-
-        {/* Live Packaging Research powered by TinyFish */}
-        {activeTab === 'tinyfish' && (
-          <TinyFishSearch />
-        )}
       </main>
 
       {/* Statutory Disclaimer Notice Banner */}
@@ -200,16 +194,6 @@ export default function App() {
               className="hover:text-[#059669] cursor-pointer"
             >
               Dashboard
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                setActiveTab('tinyfish');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              className="hover:text-[#059669] cursor-pointer"
-            >
-              Packaging Research
             </button>
             <button
               type="button"

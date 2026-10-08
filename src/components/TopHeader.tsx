@@ -53,16 +53,6 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
           title: 'System Architecture & Technical Dossier',
           subtitle: 'Methodology, research references, prototype readiness matrix, and disclaimer.'
         };
-      case 'tinyfish':
-        return {
-          title: 'Packaging Research & Intelligence',
-          subtitle: 'Live web intelligence powered by TinyFish for packaging suppliers, materials, and barrier properties.'
-        };
-      default:
-        return {
-          title: 'SmartPack AI Portal',
-          subtitle: 'Intelligent Food Packaging Material Recommendation System.'
-        };
     }
   };
 
