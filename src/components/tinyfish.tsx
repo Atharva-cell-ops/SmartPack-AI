@@ -40,13 +40,28 @@ export const TinyFishSearch: React.FC = () => {
     setSearched(false);
 
     try {
-      const configuredApiBase = (import.meta.env.VITE_API_URL || import.meta.env.VITE_BACKEND_URL || '').trim();
-      const endpoints = [
-        ...(configuredApiBase ? [`${configuredApiBase.replace(/\/$/, '')}/api/tinyfish/search`] : []),
-        '/api/tinyfish/search',
-        'http://127.0.0.1:8000/api/tinyfish/search',
-        'http://localhost:8000/api/tinyfish/search'
-      ];
+      const configuredApiBase = (
+        import.meta.env.VITE_API_BASE_URL ||
+        import.meta.env.VITE_API_URL ||
+        import.meta.env.VITE_BACKEND_URL ||
+        ''
+      ).trim();
+
+      const isLocalHost =
+        typeof window !== 'undefined' &&
+        (window.location.hostname === 'localhost' ||
+          window.location.hostname === '127.0.0.1' ||
+          window.location.hostname === '0.0.0.0');
+
+      const endpoints: string[] = [];
+      if (configuredApiBase) {
+        endpoints.push(`${configuredApiBase.replace(/\/$/, '')}/api/tinyfish/search`);
+      }
+      endpoints.push('/api/tinyfish/search');
+      if (isLocalHost || import.meta.env.DEV) {
+        endpoints.push('http://127.0.0.1:8000/api/tinyfish/search');
+        endpoints.push('http://localhost:8000/api/tinyfish/search');
+      }
 
       let lastError: Error | null = null;
       let response: Response | null = null;
@@ -61,23 +76,27 @@ export const TinyFishSearch: React.FC = () => {
             },
             body: JSON.stringify({ query: searchQuery }),
           });
-          data = await response.json();
-          if (response.ok) {
+          data = await response.json().catch(() => null);
+          if (response.ok && data) {
             break;
           } else {
-            lastError = new Error(data?.detail || `Search failed (${response.status})`);
+            const detailMsg = data?.detail || `Search service returned status ${response.status}`;
+            lastError = new Error(detailMsg);
+            if (response.status === 400 || response.status === 422) {
+              break;
+            }
           }
         } catch (fetchErr) {
-          lastError = fetchErr instanceof Error ? fetchErr : new Error('Network error');
+          lastError = fetchErr instanceof Error ? fetchErr : new Error('Network connection error');
         }
       }
 
       if (!response || !response.ok) {
-        throw lastError || new Error('Search failed to connect to backend.');
+        throw lastError || new Error('Unable to connect to HackIIITD search backend.');
       }
 
       const payload = data as SearchResponse;
-      setResults(Array.isArray(payload.results) ? payload.results : []);
+      setResults(Array.isArray(payload?.results) ? payload.results : []);
       setSearched(true);
     } catch (err) {
       setError(
@@ -144,11 +163,11 @@ export const TinyFishSearch: React.FC = () => {
           className="flex items-start gap-3 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800"
         >
           <AlertCircle className="mt-0.5 h-5 w-5 shrink-0" />
-          <div>
+          <div className="flex-1">
             <p className="font-semibold">Search could not be completed</p>
             <p className="mt-1">{error}</p>
-            <p className="mt-1">
-              Check that the backend is running at 127.0.0.1:8000.
+            <p className="mt-1 text-xs text-red-600">
+              Ensure the HackIIITD research backend service is running and configured with a valid TINYFISH_API_KEY.
             </p>
           </div>
         </div>
@@ -177,40 +196,46 @@ export const TinyFishSearch: React.FC = () => {
             </div>
           ) : (
             <div className="grid gap-4">
-              {results.map((result, index) => (
-                <article
-                  key={`${result.url}-${index}`}
-                  className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-emerald-200"
-                >
-                  <h3 className="font-semibold leading-6 text-slate-900">
-                    {result.title || 'Untitled result'}
-                  </h3>
+              {results.map((result, index) => {
+                const isExternalLinkSafe =
+                  typeof result.url === 'string' &&
+                  (result.url.startsWith('https://') || result.url.startsWith('http://'));
 
-                  {result.site_name && (
-                    <p className="mt-1 text-xs font-medium text-emerald-700">
-                      {result.site_name}
-                    </p>
-                  )}
+                return (
+                  <article
+                    key={`${result.url || 'res'}-${index}`}
+                    className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-emerald-200"
+                  >
+                    <h3 className="font-semibold leading-6 text-slate-900">
+                      {result.title || 'Untitled result'}
+                    </h3>
 
-                  {result.snippet && (
-                    <p className="mt-3 text-sm leading-6 text-slate-600">
-                      {result.snippet}
-                    </p>
-                  )}
+                    {result.site_name && (
+                      <p className="mt-1 text-xs font-medium text-emerald-700">
+                        {result.site_name}
+                      </p>
+                    )}
 
-                  {result.url && (
-                    <a
-                      href={result.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 hover:text-emerald-900"
-                    >
-                      Visit source
-                      <ExternalLink className="h-4 w-4" />
-                    </a>
-                  )}
-                </article>
-              ))}
+                    {result.snippet && (
+                      <p className="mt-3 text-sm leading-6 text-slate-600">
+                        {result.snippet}
+                      </p>
+                    )}
+
+                    {isExternalLinkSafe && (
+                      <a
+                        href={result.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 hover:text-emerald-900"
+                      >
+                        Visit source
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                    )}
+                  </article>
+                );
+              })}
             </div>
           )}
         </div>
